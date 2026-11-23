@@ -1,0 +1,380 @@
+<title>Родини парафії Св. Марії</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* Concept: an archive reading-room. Dark ink-blue masthead with the project's question, then pale paper sections. Teal is the accent; evidence levels have their own semantic colours; families have a fixed categorical set. */
+:root{--bg:#f3f4f1;--surf:#fbfbf9;--ink:#1b2a2d;--mut:#586a6c;--line:#d7dcd4;--acc:#1c5d63;--soft:#dfece9;--mast:#14262b;--mastink:#eef3f1;--mastmut:#a9bdbb;
+--lA:#27774a;--lB:#2c5ea6;--lV:#9a6208;--lG:#a23a3a;
+--c0:#1c7c80;--c1:#b9770e;--c2:#7a5ab0;--c3:#2c5ea6;--c4:#b5485d;--c5:#4f8a3a;--c6:#6b7778;
+--ser:"Source Serif 4",Georgia,"Times New Roman",serif;--sans:Inter,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101819;--surf:#182223;--ink:#e6edeb;--mut:#93a4a2;--line:#2a3839;--acc:#6dc3c3;--soft:#1c3335;--mast:#0b1315;--lA:#6fcf97;--lB:#7fb0ee;--lV:#e5b25e;--lG:#ee8d8d;--c0:#4fc0c4;--c1:#e0a13d;--c2:#a98ce0;--c3:#7fb0ee;--c4:#e57d92;--c5:#86c46c;--c6:#9fb0b1;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101819;--surf:#182223;--ink:#e6edeb;--mut:#93a4a2;--line:#2a3839;--acc:#6dc3c3;--soft:#1c3335;--mast:#0b1315;--lA:#6fcf97;--lB:#7fb0ee;--lV:#e5b25e;--lG:#ee8d8d;--c0:#4fc0c4;--c1:#e0a13d;--c2:#a98ce0;--c3:#7fb0ee;--c4:#e57d92;--c5:#86c46c;--c6:#9fb0b1;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--sans)}
+.w{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mast{background:var(--mast);color:var(--mastink);padding-block:28px 0}
+.mast .top{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between}
+.brand{font:600 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mastmut)}
+.mast nav{display:flex;flex-wrap:wrap;gap:2px 18px}
+.mast nav a{color:var(--mastmut);text-decoration:none;font-size:14px;padding:4px 0}
+.mast nav a:hover{color:var(--mastink)}
+h1{font:700 clamp(30px,5vw,52px)/1.08 var(--ser);margin:40px 0 14px;max-width:20ch;text-wrap:balance}
+.lede{font-size:18px;max-width:60ch;color:var(--mastmut);margin:0 0 30px}
+.nums{display:flex;flex-wrap:wrap;gap:14px 40px;padding-block:22px;border-top:1px solid rgba(255,255,255,.14)}
+.nums div{font-size:13px;color:var(--mastmut)}
+.nums b{display:block;font:600 34px var(--ser);color:var(--mastink);font-variant-numeric:tabular-nums;line-height:1.1}
+section{padding-block:56px 8px}
+h2{font:600 clamp(24px,3.4vw,34px)/1.15 var(--ser);margin:0 0 8px;text-wrap:balance}
+.sub{color:var(--mut);max-width:66ch;margin:0 0 26px}
+h3{font:600 15px var(--sans);margin:0 0 6px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:22px}
+.step{border-top:2px solid var(--acc);padding-top:10px}
+.step small{color:var(--mut);display:block}
+.lev{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.lev div{background:var(--surf);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.lv{display:inline-block;min-width:24px;text-align:center;font-weight:700;font-size:13px;border:1.5px solid currentColor;border-radius:5px;padding:0 6px;margin-right:6px}
+.lvА{color:var(--lA)}.lvБ{color:var(--lB)}.lvВ{color:var(--lV)}.lvГ{color:var(--lG)}
+.lev b{font-variant-numeric:tabular-nums}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.tab{font:500 14px var(--sans);color:var(--ink);background:var(--surf);border:1px solid var(--line);border-radius:20px;padding:6px 16px;cursor:pointer}
+.tab[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:var(--bg)}
+.tab:focus-visible,a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.panel{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+.kpis{display:flex;flex-wrap:wrap;gap:6px 26px;margin:6px 0 4px}
+.kpis div{font-size:13px;color:var(--mut)}
+.kpis b{display:block;font:600 24px var(--ser);color:var(--ink);font-variant-numeric:tabular-nums}
+.chain{display:flex;flex-direction:column}
+.node{position:relative;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);margin-left:0}
+.node small{color:var(--mut);display:block}
+.edge{display:flex;align-items:center;gap:8px;padding:3px 0 3px 22px;color:var(--mut);font-size:12.5px;position:relative}
+.edge::before{content:"";position:absolute;left:10px;top:0;bottom:0;border-left:3px solid var(--ec,var(--line))}
+.edge .lv{font-size:12px}
+.cv{position:relative;width:100%}
+.cv.h260{height:260px}.cv.h300{height:300px}.cv.h340{height:340px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px}
+.cap{font-size:13px;color:var(--mut);margin-top:8px}
+.find{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px}
+.find div{border-left:3px solid var(--acc);padding:2px 0 2px 12px}
+.find b{display:block;font:600 22px var(--ser);font-variant-numeric:tabular-nums}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
+select,input{font:inherit;color:var(--ink);background:var(--surf);border:1px solid var(--line);border-radius:6px;padding:7px 9px;min-width:0}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;font:600 12px var(--sans);color:var(--mut);padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14.5px}
+.tw{overflow-x:auto}
+.mut{color:var(--mut)}.num{font-variant-numeric:tabular-nums}
+.scan{display:inline-block;font:500 13px var(--sans);color:var(--acc);border:1px solid var(--acc);border-radius:5px;padding:2px 9px;background:none;cursor:pointer}
+.noscan{font-size:12.5px;color:var(--mut)}
+details summary{cursor:pointer;color:var(--acc);font-size:13px}
+.tree{overflow-x:auto;padding-bottom:8px}
+.tree svg{display:block;margin:0 auto}
+.tree text{font:12px var(--sans);fill:var(--ink)}
+.tree .m{fill:var(--mut);font-size:10.5px}
+.nodebox{fill:var(--surf);stroke:var(--line)}
+.pg{display:flex;gap:10px;align-items:center;margin-top:10px}
+button.b{font:inherit;background:var(--surf);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:6px 14px;cursor:pointer}
+button.b:disabled{opacity:.45;cursor:default}
+.modal{position:fixed;inset:0;background:rgba(5,10,12,.78);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}
+.modal[hidden]{display:none}
+.modal .box{background:var(--surf);border-radius:10px;max-width:min(1100px,100%);max-height:100%;overflow:auto;padding:14px}
+.modal img{max-width:100%;height:auto;display:block}
+footer{padding-block:40px 60px;color:var(--mut);font-size:13px}
+@media(prefers-reduced-motion:no-preference){.tab{transition:background .15s}}
+.meth{margin:0;padding-left:20px}.meth li{margin:0 0 10px}
+#gmap svg{width:100%;height:auto;display:block}.hit{cursor:pointer}
+</style>
+<header class="mast"><div class="w">
+<div class="top"><span class="brand">Єлисаветград · лютеранська парафія Св. Марії · ф. 834 ДАКО</span>
+<nav><a href="#project">Проєкт</a><a href="#families">Родини</a><a href="#overview">Усі записи</a><a href="#demography">Демографія</a><a href="#trees">Гнізда</a><a href="#method">Метод</a><a href="#geo">Поселення</a><a href="#search">Пошук</a><a href="#jury">Для журі</a></nav></div>
+<h1>Шість родин німецької колонії в метричних книгах</h1>
+<p class="lede">Giedt, Wormsbecher, Pritzkau, Buchholz, Hübner і Engel: від ревізії 1816 року до парафіяльних записів 1921-го. Кожен факт у базі має посилання на книгу, аркуш і номер запису.</p>
+<div class="nums" id="nums"></div>
+</div></header>
+<main class="w">
+<section id="project"><h2>Від книги до родини</h2>
+<p class="sub">Метричні книги парафії написані скорописом німецькою та російською. Ми переписали їх у таблиці, зіставили з іншими джерелами і зібрали базу, де кожен запис про народження, шлюб чи смерть можна перевірити за скан-копією.</p>
+<div class="steps"><div class="step"><h3>1. Метричні книги</h3><small>Народжені 1889–1921, померлі 1859–1921, шлюби 1859–1920. Додатково: ревізії 1816 і 1858, реєстри колоністів Alt-Danzig.</small></div>
+<div class="step"><h3>2. Повні реєстри</h3><small id="regs"></small></div>
+<div class="step"><h3>3. База родин</h3><small id="corec"></small></div></div>
+<h3>Наскільки ми впевнені</h3><p class="mut" style="margin-top:0">Кожен факт має рівень достовірності. Він відповідає на запитання: чи бачимо ми це в документі, чи лише припускаємо.</p>
+<div class="lev" id="levs"></div></section>
+
+<section id="families"><h2>Шість родин</h2>
+<p class="sub">Оберіть родину: звідки вона походить, що про неї записано і які записи підтверджені документом.</p>
+<div class="tabs" id="ftabs" role="group" aria-label="Родини"></div>
+<div id="fpane"></div></section>
+
+<section id="overview"><h2>Усі записи: народження, шлюби, смерті</h2>
+<p class="sub">Загальна картина всього, що ми занесли до бази, не лише про шість родин. Смерті й шлюби — це повні реєстри за збереженими книгами; народження — усі записи, що є в базі (вони охоплюють родини й сусідні сім’ї, а не повну книгу).</p>
+<div class="kpis" id="ovk" style="gap:10px 44px;margin-bottom:18px"></div>
+<div class="panel"><h3>Записи за роками</h3><div class="cv h340"><canvas id="c_ov" role="img" aria-label="Народження, шлюби і смерті за роками"></canvas></div><p class="cap" id="cap_ov"></p></div>
+<div class="panel"><h3>Звідки взято записи</h3><div class="tw"><table id="ovt"></table></div></div></section>
+
+<section id="demography"><h2>Парафія у числах</h2>
+<p class="sub">Статистика з повних реєстрів парафії, а не лише з шести родин. Вона показує, у якому світі жили наші родини: скільки дітей помирало, коли одружувалися, від чого хворіли.</p>
+<div class="grid2">
+<div class="panel"><h3>Смерті за роками, 1860–1921</h3><div class="cv h300"><canvas id="c_dy" role="img" aria-label="Кількість смертей за роками"></canvas></div><p class="cap" id="cap_dy"></p></div>
+<div class="panel"><h3>Частка дітей до 15 років серед померлих</h3><div class="cv h300"><canvas id="c_ch" role="img" aria-label="Частка дитячих смертей за десятиліттями"></canvas></div><p class="cap">Кожен другий померлий у 1870–1890-х був дитиною. До 1910-х частка падає до третини.</p></div>
+<div class="panel"><h3>Вік померлих</h3><div class="cv h300"><canvas id="c_ag" role="img" aria-label="Вікові групи померлих"></canvas></div><p class="cap" id="cap_ag"></p></div>
+<div class="panel"><h3>Причини смерті</h3><div class="cv h340"><canvas id="c_cz" role="img" aria-label="Причини смерті, дорослі і діти"></canvas></div><p class="cap">Категорії підібрано за формулюваннями в книгах (німецькою і російською); «інше» — формулювання, які не вдалося віднести до категорії.</p></div>
+<div class="panel"><h3>Смерті за місяцями</h3><div class="cv h260"><canvas id="c_se" role="img" aria-label="Сезонність смертей"></canvas></div></div>
+<div class="panel"><h3>Вік при шлюбі за десятиліттями</h3><div class="cv h260"><canvas id="c_ma" role="img" aria-label="Середній вік наречених і наречених"></canvas></div><p class="cap">Середній вік: чоловіки близько 29–31 року, жінки близько 22–25. Для 1900–1909 років у записах вік не вказано.</p></div>
+<div class="panel"><h3>Заняття наречених</h3><div class="cv h300"><canvas id="c_oc" role="img" aria-label="Заняття наречених"></canvas></div><p class="cap">Лише записи, де заняття вказано (близько 150 із 633 шлюбів).</p></div>
+<div class="panel"><h3>Де народилися померлі</h3><div class="cv h300"><canvas id="c_bp" role="img" aria-label="Місця народження померлих"></canvas></div></div>
+<div class="panel" style="grid-column:1/-1"><h3>Народження і хрещення шести родин за десятиліттями</h3><div class="cv h300"><canvas id="c_bi" role="img" aria-label="Народження за родинами"></canvas></div><p class="cap">Рахуємо записи в метричних книгах, де родина названа за прізвищем.</p></div>
+</div>
+<div class="find" id="find"></div></section>
+
+<section id="trees"><h2>Родинні гнізда</h2>
+<p class="sub">Усі покоління, які вдалося простежити: від родоначальника до онуків і правнуків, з попередніми поколіннями над ним. Колір рамки показує надійність зв’язку особи з батьками.</p>
+<div class="bar"><label for="tf" class="mut">Родина</label><select id="tf"></select><label for="tp" class="mut">Родоначальник</label><select id="tp"></select><label class="mut" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="th" style="min-width:auto"> Показати гіпотези наступництва</label></div>
+<div class="bar" id="ttool"><button class="b" id="tzm" aria-label="Зменшити">−</button><span class="num" id="tzv">100%</span><button class="b" id="tzp" aria-label="Збільшити">+</button><button class="b" id="tz0">Умістити</button><input id="ts" type="search" placeholder="Знайти особу в гнізді" style="flex:1 1 200px" aria-label="Знайти особу в гнізді"><span class="mut num" id="tsn"></span></div>
+<div class="panel tree" id="tview"></div></section>
+
+<section id="method"><h2>Метод і складний випадок</h2>
+<p class="sub">Реконструкція родини з метричних книг не зводиться до зчитування записів. Імена повторюються, написання «пливе», а один і той самий чоловік може виглядати як кілька різних.</p>
+<div class="two"><div class="panel"><h3>Як ми працюємо</h3>
+<ol class="meth"><li><b>Первинний документ.</b> Кожен запис має книгу, аркуш і номер. Підтверджені (рівень А) записи мають скан сторінки; ті, що лише в транскрипціях BSGR, позначені окремо.</li>
+<li><b>Зіставлення зі скану.</b> Аркуш на скані знаходимо за змістом: роком і номером запису, бо в книгах по кілька нумерацій.</li>
+<li><b>Рівні достовірності.</b> А — бачимо в документі; Б — імена, дружини, діти й хронологія збігаються; В — припущення; Г — відхилено. Рівень змінює лише дослідниця.</li>
+<li><b>Об’єднання осіб.</b> Різні записи вважаємо однією особою, лише коли збігаються роки й опис. Інакше лишаємо окремо й позначаємо питання.</li>
+<li><b>Гіпотези наступництва.</b> Де документа немає, будуємо гіпотезу за прізвищем і різницею у віці батька й дитини 18–50 років. Така гіпотеза завжди окремо позначена й не вважається фактом.</li></ol></div>
+<div class="panel"><h3>У цифрах</h3><div class="kpis" id="mk"></div><p class="cap" id="mkc"></p></div></div>
+<div class="panel"><h3>Складний випадок: хто такий «Johann Giedt»?</h3>
+<p class="mut" style="margin-top:0" id="tz_p"></p>
+<div class="tw"><table id="tz"></table></div><p class="cap" id="tz_c"></p></div></section>
+
+<section id="geo"><h2>Населені пункти громади</h2>
+<p class="sub">З яких поселень складалася парафія Св. Марії: за місцем народження померлих, де воно названо в книзі. Це не маршрут переселення, а склад громади.</p>
+<div class="panel"><h3>Поселення за кількістю згадок</h3><div class="tw"><table id="gt"></table></div><p class="cap">Рахуємо місця народження померлих, де воно названо в книзі; варіанти написання одного поселення об’єднано.</p></div></section>
+
+<section id="search"><h2>Пошук по базі</h2>
+<p class="sub">Знайдіть особу за іменем чи прізвищем або запис за словом із тексту. Шукає в усій базі, а не лише в шести родинах.</p>
+<div class="panel"><div class="bar"><input id="sq" type="search" placeholder="Наприклад: Heinrich Wormsbecher" style="flex:1 1 260px" aria-label="Пошук"><span class="mut num" id="sn"></span></div>
+<div class="tw" id="sp"></div><div class="tw" id="sr" style="margin-top:14px"></div></div></section>
+
+<section id="jury"><h2>Коротко для журі</h2>
+<p class="sub">Що зроблено, на що спираються висновки і що залишається відкритим.</p>
+<div class="panel"><div class="kpis" id="jk"></div></div>
+<div class="two"><div class="panel"><h3>Що показує проєкт</h3><ul class="meth" id="jl"></ul></div>
+<div class="panel"><h3>Що залишається відкритим</h3><ul class="meth"><li>Для багатьох осіб немає запису про народження, тому зв’язок між поколіннями лишається гіпотезою.</li><li>Повторювані імена (наприклад, вісім Johann Giedt) не можна розрізнити без додаткових джерел.</li><li>Деякі аркуші мають дати не за порядком; їх залишено як у книзі, з позначкою.</li><li>Транскрипції BSGR — вторинне джерело; їх зіставляють з оригіналами поступово.</li></ul></div></div></section>
+<footer>Дані: Core_v21 (22.11.2026), повні реєстри смертей і шлюбів. Усі читання з рукописів проходять звірку дослідниці за оригіналом; рівні А–Г показано так, як вони записані в базі.</footer>
+</main>
+<div class="modal" id="md" hidden><div class="box"><button class="b" id="mc">Закрити</button><div id="mb"></div></div></div>
+<script>
+const FAMS=[['Giedt','Giedt'],['Wormsbecher','Wormsbecher'],['Pritzkau','Pritzkau'],['Buchholz','Buchholz'],['Hübner','Hübner'],['Engel','Engel'],['Benkendorf','Benkendorf (лід)']];
+const FRE={Giedt:/giedt|gidt/i,Wormsbecher:/wormsbe|wormsbek/i,Pritzkau:/pritzka[un]|prizkau/i,Buchholz:/buchholz/i,'Hübner':/h[üu]e?bner/i,Engel:/\bengel/i,Benkendorf:/benkendorf/i};
+const CHAIN={
+Giedt:{from:'Ревізія 1816 → парафія 1898',n:[['Двори Giedt у ревізії 1816','Реєстр Штумппа, RL24–27'],['Двори Giedt у ревізії 1858','RL58–61'],['Martin Giedt (≈1831) × Barbara Hinzmann','Alt-Danzig, хрещені 1856–58'],['Theodor Giedt (≈1868)','у шлюбі 1898 названий «син Martin»'],['Шлюб 25.05.1898: Theodor × Eleonore Wormsbecher','книги шлюбів, спр.4 №6 і опис 6 №7']],e:[['В','ймовірний зв’язок'],['А','рішення дослідниці'],['В','немає акту народження'],['А','підтверджено записом шлюбу']]},
+Wormsbecher:{from:'Ревізія 1858 → шлюб 1898',n:[['Michel Jakob’s (≈1804)','ревізія 1858, двір RL55'],['Heinrich (≈1823)','син голови двору'],['Heinrich Wormsbecher × Barbara geb. Buchholz','парафіяльні записи'],['Eleonore (≈1870)','народження не знайдено'],['Шлюб 25.05.1898 з Theodor Giedt','спр.4 №6, опис 6 №7']],e:[['Б','син у ревізії'],['Б','збіг імені й дружини'],['В','за свідченням шлюбу: «дочка Heinrich»'],['А','підтверджено записом шлюбу']]},
+Pritzkau:{from:'Ревізія 1816 → шлюб 1887',n:[['Friedrich (≈1787) × Agathe','ревізія 1816, RL22'],['Вдова Agathe і сини','ревізія 1858, RL52'],['Jakob Prizkau × Christina Engel','Alt-Danzig, діти 1846–68'],['Jacob Pritzkan × Christine Engel','парафія, діти 1860–68'],['Jakob Friedrich Pritzkau (≈1860)','шлюб 1887 №3, арк. 62']],e:[['Б','двори пов’язані'],['Б','імена й діти збігаються'],['Б','та сама пара'],['Б','вік 27 у 1887']]},
+Buchholz:{from:'Ревізія 1816 → парафія 1861',n:[['Michel (≈1786) × Elisabeth','ревізія 1816, RL9'],['Двори RL40, RL41, RL46','ревізія 1858'],['Michel Johann’s (≈1828) × Rosina','Alt-Danzig, діти 1854–57'],['Johann Michel’s (≈1819) × Leonore','Alt-Danzig, діти 1848–57'],['Heinrich Buchholz × Elisabetha Wormsbecher','парафія 1861']],e:[['В','патроніми не збігаються'],['А','діти й дружина збігаються'],['А','діти й дружина збігаються'],['В','дружина у ревізії не вказана']]},
+'Hübner':{from:'Ревізія 1816 → шлюб 1884',n:[['Johann (≈1785) × Christina','ревізія 1816, RL28'],['Двір RL62, помер 1854','ревізія 1858'],['Martin Johann’s (≈1828) × Luise Pudwell','Alt-Danzig, діти 1854–59'],['Martin Hübner × Louise Pudwell','парафія, діти 1863–67'],['Theodor Hübner (≈1859)','шлюб 05.02.1884, арк. 56 №2']],e:[['В','двори пов’язані'],['А','діти й дружина збігаються'],['Б','прізвище дружини Pudevell/Pudwell'],['Б','вік 25 у 1884']]},
+Engel:{from:'Ревізія 1816 → парафія 1867',n:[['Christian (≈1782) × Susanna','ревізія 1816, RL16'],['Johann Christian’s (≈1806)','ревізія 1858, RL49'],['Johann Engel × Anna Engel','Alt-Danzig, син Friedrich 1845'],['Karl (≈1831) × Barbara Wormsbecher','Alt-Danzig, дочка Katharina 1856'],['Friedrich Engel (≈1845)','парафія 1867, син Heinrich']],e:[['В','є два кандидати-батьки'],['А','рішення дослідниці'],['А','діти й дружина збігаються'],['Б','вік 22 у 1867']]}};
+let HY={},HYON=false,BJ,C,S,SC={},FAMBIRTH={},UNI=[],PER={},KIDS={};
+const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const lv=x=>{x=(x||'')[0]||'–';return '<span class="lv lv'+x+'">'+esc(x)+'</span>'};
+const LK=x=>({'А':'A','Б':'B','В':'V','Г':'G'}[x]||'B');
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const FC=['--c0','--c1','--c2','--c3','--c4','--c5','--c6'];
+Promise.all([fetch('core.json').then(r=>r.json()),fetch('stats.json').then(r=>r.json()),fetch('birth.json').then(r=>r.json()),fetch('hyp.json').then(r=>r.json()).catch(()=>({})),fetch('scans.json').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([c,s,bj,hy,sc])=>{C=c;S=s;BJ=bj;HY=hy||{};SC=sc||{};init()});
+function init(){
+  C.P.forEach(p=>{PER[p[0]]={id:p[0],n:p[1],s:p[2],sex:p[3],b:p[5],d:p[6],f:p[7],m:p[8],lv:p[9]}});
+  const nb=Object.values(C.birth).reduce((a,v)=>a+v.reduce((x,y)=>x+y[1],0),0);
+  const lc={А:0,Б:0,В:0,Г:0};C.A.forEach(r=>{});
+  $('#nums').innerHTML=[[S.nDeaths,'записів про смерті'],[S.nMar,'записів про шлюби'],[nb,'народжень шести родин і Benkendorf'],[C.A.length,'підтверджених записів із посиланням на книгу'],...(Object.keys(SC).length?[[Object.keys(SC).length,'записів зі скан-копією']]:[])].map(x=>'<div><b>'+x[0]+'</b>'+x[1]+'</div>').join('');
+  $('#regs').textContent='Власні таблиці: '+S.nDeaths+' смертей (1860–1921) і '+S.nMar+' шлюбів (1859–1920); в кожному рядку записано джерело й ступінь повноти.';
+  $('#corec').textContent=C.P.length+' осіб, '+C.U.length+' пар, понад півтори тисячі подій. Кожну подію пов’язано з книгою, аркушем і номером запису.';
+  $('#levs').innerHTML=[['А','Підтверджено','Бачимо у первинному документі: запис метричної книги з іменами й датами.'],['Б','Імовірно','Збігаються імена, дружини, діти й хронологія, але прямого запису тотожності немає.'],['В','Припущення','Зв’язок можливий, але потребує додаткового доказу.'],['Г','Відхилено','Перевірка показала, що це різні особи.']].map(x=>'<div><span class="lv lv'+x[0]+'">'+x[0]+'</span><b>'+x[1]+'</b><div class="mut" style="margin-top:4px">'+x[2]+'</div></div>').join('');
+  $('#ftabs').innerHTML=FAMS.map((f,i)=>'<button class="tab" data-k="'+f[0]+'" aria-pressed="'+(i===0)+'">'+esc(f[1])+'</button>').join('');
+  document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-pressed',x===b));famPane(b.dataset.k)});
+  famPane('Giedt');charts();trees();extras();
+  $('#mc').onclick=()=>$('#md').hidden=true;$('#md').onclick=e=>{if(e.target.id==='md')$('#md').hidden=true};
+  matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{charts();});
+}
+let AP={k:'Giedt',pg:0,t:''};
+function famPane(k){
+  AP={k,pg:0,t:''};
+  const rows=C.A.filter(r=>r[4]===k);
+  const birth=(C.birth[k]||[]).reduce((a,x)=>a+x[1],0);
+  const chain=CHAIN[k];
+  const kinds={};rows.forEach(r=>{const t=r[1].split(' ')[0];kinds[t]=(kinds[t]||0)+1});
+  const chainHtml=chain?('<h3>Подорож роду</h3><p class="mut" style="margin:0 0 10px">'+esc(chain.from)+'</p><div class="chain">'+chain.n.map((n,i)=>'<div class="node"><b>'+esc(n[0])+'</b><small>'+esc(n[1])+'</small></div>'+(chain.e[i]?'<div class="edge" style="--ec:var(--l'+LK(chain.e[i][0])+')">'+lv(chain.e[i][0])+esc(chain.e[i][1])+'</div>':'')).join('')+'</div>'):'<p class="mut">Для цього роду ланцюг походження ще збирається.</p>';
+  $('#fpane').innerHTML='<div class="two"><div class="panel">'+chainHtml+'</div><div class="panel"><h3>Родина '+esc(k)+' в цифрах</h3><div class="kpis"><div><b>'+birth+'</b>народжень і хрещень</div><div><b>'+(kinds['шлюб']||0)+'</b>шлюбів</div><div><b>'+(kinds['смерть']||0)+'</b>смертей</div><div><b>'+rows.length+'</b>підтверджених записів</div></div><div class="cv h260" style="margin-top:12px"><canvas id="c_fb" role="img" aria-label="Народження родини за десятиліттями"></canvas></div></div></div>'+
+  '<div class="panel"><h3>Життєвий ритм родини</h3><div class="cv h260"><canvas id="c_tl" role="img" aria-label="Народження, шлюби і смерті родини за десятиліттями"></canvas></div><p class="cap">Народження — усі записи родини; шлюби й смерті — лише підтверджені документом.</p></div>'+
+  '<div class="panel"><h3>Підтверджені записи</h3><div class="bar"><select id="ft" aria-label="Тип запису"><option value="">Усі типи</option><option>народження</option><option>хрещення</option><option>шлюб</option><option>смерть</option></select><input id="fq" type="search" placeholder="Пошук за іменем" style="flex:1 1 200px"><span class="mut num" id="fn"></span></div><div class="tw" id="ft_tbl"></div><div class="pg"><button class="b" id="fp">Назад</button><span class="num" id="fpg"></span><button class="b" id="fnx">Далі</button></div></div>';
+  const b=C.birth[k]||[];
+  new Chart($('#c_fb'),{type:'bar',data:{labels:b.map(x=>x[0]+'-ті'),datasets:[{data:b.map(x=>x[1]),backgroundColor:css(FC[FAMS.findIndex(f=>f[0]===k)])}]},options:cOpt({legend:false,y:'записів'})});
+  (()=>{const dec=y=>Math.floor(y/10)*10,yr=r=>{const m=(r[2]||'').match(/(1[89]\d\d)/);return m?+m[1]:null};
+    const D={};const put=(t,y,n)=>{if(!y)return;const d=dec(y);(D[d]=D[d]||{b:0,m:0,d:0})[t]+=n};
+    (C.birth[k]||[]).forEach(x=>put('b',+x[0],x[1]));
+    rows.forEach(r=>{if(r[1].startsWith('шлюб'))put('m',yr(r),1);else if(r[1].startsWith('смерть'))put('d',yr(r),1)});
+    const ds=Object.keys(D).map(Number).sort((a,b)=>a-b);
+    mk('c_tl',{type:'bar',data:{labels:ds.map(d=>d+'-ті'),datasets:[{label:'народження',data:ds.map(d=>D[d].b),backgroundColor:css('--c5')},{label:'шлюби',data:ds.map(d=>D[d].m),backgroundColor:css('--c1')},{label:'смерті',data:ds.map(d=>D[d].d),backgroundColor:css('--acc')}]},options:cOpt({legend:true,y:'записів'})})})();
+  const draw=()=>{
+    const q=($('#fq').value||'').toLowerCase(),t=$('#ft').value;
+    const L=rows.filter(r=>(!t||r[1].startsWith(t))&&(!q||r[3].toLowerCase().includes(q))).map((r,i)=>[SC[r[0]]?0:1,i,r]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]).map(x=>x[2]);
+    const N=15,pages=Math.max(1,Math.ceil(L.length/N));if(AP.pg>=pages)AP.pg=0;
+    $('#fn').textContent=L.length+' записів';
+    $('#ft_tbl').innerHTML='<table><thead><tr><th>Дата</th><th>Запис</th><th>Книга і місце</th><th>Скан</th></tr></thead><tbody>'+L.slice(AP.pg*N,AP.pg*N+N).map(r=>{
+      const sc=SC[r[0]];
+      return '<tr><td class="num" style="white-space:nowrap">'+esc(r[2])+'<br><span class="mut" style="font-size:12px">'+esc(r[1])+'</span></td><td>'+esc(r[3].length>230?r[3].slice(0,230)+'…':r[3])+'</td><td class="mut" style="font-size:13px">'+esc(shortBook(r[5]))+'<br>'+esc(r[6].replace(/ф\. 834 оп\. 1 /,''))+'</td><td>'+(sc?'<button class="scan" data-id="'+esc(r[0])+'">Скан</button>':'<span class="noscan">'+(/транскрип/i.test(r[5])?'вторинна транскрипція':'скан готується')+'</span>')+'</td></tr>'}).join('')+'</tbody></table>';
+    $('#fpg').textContent=(AP.pg+1)+' / '+pages;$('#fp').disabled=AP.pg===0;$('#fnx').disabled=AP.pg>=pages-1;
+    document.querySelectorAll('.scan').forEach(b=>b.onclick=()=>openScan(b.dataset.id));
+  };
+  $('#fq').oninput=()=>{AP.pg=0;draw()};$('#ft').onchange=()=>{AP.pg=0;draw()};$('#fp').onclick=()=>{AP.pg--;draw()};$('#fnx').onclick=()=>{AP.pg++;draw()};draw();
+}
+function shortBook(b){b=b||'';if(/народжен/i.test(b))return 'Книга народжених 1889–1921';if(/померл/i.test(b))return 'Книга померлих';if(/шлюб/i.test(b))return 'Книга шлюбів';if(/BSGR|транскрипц/i.test(b))return 'Транскрипція BSGR (FamilySearch)';return b.slice(0,40)}
+function openScan(id){const s=SC[id];if(!s)return;const r=C.A.find(x=>x[0]===id);$('#mb').innerHTML='<h3 style="margin:10px 0 4px">'+esc(r?r[2]:'')+'</h3><p class="mut" style="margin:0 0 8px">'+esc(r?r[3]:'')+'</p><img src="'+esc(s.img)+'" alt="Скан метричної книги: '+esc(s.cap||'')+'"><p class="cap">'+esc(s.cap||'')+'</p>';$('#md').hidden=false}
+function cOpt(o){const mut=css('--mut'),line=css('--line');return{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:!!o.legend,labels:{color:css('--ink')}},tooltip:{}},scales:{x:{ticks:{color:mut,maxRotation:0,autoSkip:true},grid:{display:false},stacked:!!o.stack},y:{ticks:{color:mut},grid:{color:line},title:{display:!!o.y,text:o.y||'',color:mut},stacked:!!o.stack,beginAtZero:true}}}}
+const CH={};
+function mk(id,cfg){if(CH[id])CH[id].destroy();const el=document.getElementById(id);if(el)CH[id]=new Chart(el,cfg)}
+
+function overview(){
+  const by=BJ.birthYear,nb=by.reduce((a,x)=>a+x[1],0);
+  $('#ovk').innerHTML=[[nb,'записів про народження і хрещення'],[S.nMar,'записів про шлюби (1859–1920)'],[S.nDeaths,'записів про смерті (1860–1921)'],[nb+S.nMar+S.nDeaths,'усього записів']].map(x=>'<div><b>'+x[0]+'</b>'+x[1]+'</div>').join('');
+  const ys=[];for(let y=1856;y<=1921;y++)ys.push(y);
+  const m=o=>{const d={};o.forEach(x=>d[x[0]]=x[1]);return ys.map(y=>d[y]||0)};
+  mk('c_ov',{type:'line',data:{labels:ys,datasets:[{label:'народження',data:m(by),borderColor:css('--c5'),backgroundColor:css('--c5'),pointRadius:0,tension:.2},{label:'шлюби',data:m(S.marYear),borderColor:css('--c1'),backgroundColor:css('--c1'),pointRadius:0,tension:.2},{label:'смерті',data:m(S.deathsYear),borderColor:css('--acc'),backgroundColor:css('--acc'),pointRadius:0,tension:.2}]},options:(()=>{const o=cOpt({legend:true,y:'записів на рік'});return o})()});
+  $('#cap_ov').textContent='Лінія народжень відображає записи, внесені до бази, тому її не слід читати як демографію всієї парафії; смерті й шлюби — повні реєстри.';
+  const sr=BJ.birthSrc;
+  $('#ovt').innerHTML='<thead><tr><th>Тип</th><th>Джерело</th><th>Записів</th></tr></thead><tbody>'+[['Народження і хрещення','Парафіяльна база народжень',sr['Парафіяльна база']],['Народження і хрещення','Метрична книга, ф. 834 оп. 5',sr['оп.5 (метрична книга)']],['Народження і хрещення','Транскрипції BSGR (FamilySearch)',sr['BSGR/FamilySearch']],['Шлюби','Книги шлюбів, ф. 834 ДАКО',S.nMar],['Смерті','Книги померлих, ф. 834 оп. 1 спр. 3 і 7',S.nDeaths]].map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td class="num">'+r[2]+'</td></tr>').join('')+'</tbody>';
+}
+function charts(){
+  overview();
+  const a=css('--acc'),c1=css('--c1'),c2=css('--c2'),mut=css('--mut');
+  const dy=S.deathsYear;mk('c_dy',{type:'bar',data:{labels:dy.map(x=>x[0]),datasets:[{data:dy.map(x=>x[1]),backgroundColor:a}]},options:cOpt({y:'смертей'})});
+  const top=dy.slice().sort((x,y)=>y[1]-x[1]).slice(0,3);$('#cap_dy').textContent='Найбільше записів: '+top.map(x=>x[0]+' ('+x[1]+')').join(', ')+'. Роки без стовпчика (1862, друга половина 1865) відсутні в архіві.';
+  mk('c_ch',{type:'line',data:{labels:S.childShare.map(x=>x[0]+'-ті'),datasets:[{data:S.childShare.map(x=>x[1]),borderColor:c1,backgroundColor:c1,tension:.25,pointRadius:4}]},options:(()=>{const o=cOpt({y:'% померлих'});o.scales.y.max=70;return o})()});
+  const ag=S.ageGroups,tot=ag.reduce((x,y)=>x+y[1],0);
+  mk('c_ag',{type:'bar',data:{labels:ag.map(x=>x[0]),datasets:[{data:ag.map(x=>x[1]),backgroundColor:a}]},options:cOpt({y:'померлих'})});
+  $('#cap_ag').textContent='Діти до 5 років становлять '+Math.round(100*(ag[0][1]+ag[1][1])/tot)+'% померлих із відомим віком; медіана віку — '+S.medianAge+' року.';
+  const cz=S.causes.filter(x=>x[0]!=='Інше'&&x[0]!=='Не вказано').slice(0,9);
+  mk('c_cz',{type:'bar',data:{labels:cz.map(x=>x[0].replace(/ \(.*\)/,'')),datasets:[{label:'діти до 15 років',data:cz.map(x=>x[2]),backgroundColor:c1},{label:'дорослі',data:cz.map(x=>x[1]-x[2]),backgroundColor:a}]},options:(()=>{const o=cOpt({legend:true,stack:true});o.indexAxis='y';o.scales.x.grid={color:css('--line')};o.scales.x.ticks={color:mut};o.scales.y.ticks={color:mut};o.scales.y.grid={display:false};o.scales.y.title={display:false};return o})()});
+  mk('c_se',{type:'bar',data:{labels:S.season.map(x=>x[0]),datasets:[{data:S.season.map(x=>x[1]),backgroundColor:c2}]},options:cOpt({y:'смертей'})});
+  const md=S.marDec.filter(x=>x.g);
+  mk('c_ma',{type:'line',data:{labels:md.map(x=>x.p),datasets:[{label:'наречені',data:md.map(x=>x.g),borderColor:a,backgroundColor:a,tension:.2},{label:'нареченого',data:md.map(x=>x.b),borderColor:c1,backgroundColor:c1,tension:.2}]},options:(()=>{const o=cOpt({legend:true,y:'років'});o.scales.y.beginAtZero=false;o.scales.y.min=15;o.scales.y.max=36;return o})()});
+  const oc=S.occ.filter(x=>x.k!=='не вказано').sort((x,y)=>y.g-x.g);
+  mk('c_oc',{type:'bar',data:{labels:oc.map(x=>x.k),datasets:[{data:oc.map(x=>x.g),backgroundColor:a}]},options:(()=>{const o=cOpt({});o.indexAxis='y';o.scales.y.grid={display:false};o.scales.x.grid={color:css('--line')};o.scales.x.ticks={color:mut};o.scales.y.ticks={color:mut};return o})()});
+  mk('c_bp',{type:'bar',data:{labels:S.birthplaces.map(x=>x[0]),datasets:[{data:S.birthplaces.map(x=>x[1]),backgroundColor:c2}]},options:(()=>{const o=cOpt({});o.indexAxis='y';o.scales.y.grid={display:false};o.scales.x.grid={color:css('--line')};o.scales.x.ticks={color:mut};o.scales.y.ticks={color:mut};return o})()});
+  const decs=[1850,1860,1870,1880,1890,1900,1910,1920];
+  mk('c_bi',{type:'bar',data:{labels:decs.map(d=>d+'-ті'),datasets:FAMS.map((f,i)=>({label:f[0],data:decs.map(d=>((C.birth[f[0]]||[]).find(x=>x[0]===d)||[0,0])[1]),backgroundColor:css(FC[i])}))},options:cOpt({legend:true,stack:true,y:'записів'})});
+  const ch=S.childShare,t0=ch[0],tl=ch[ch.length-1];
+  $('#find').innerHTML=[[Math.round(100*(ag[0][1]+ag[1][1])/tot)+'%','померлих були дітьми до 5 років'],[Math.max(...ch.map(x=>x[1]))+'% → '+tl[1]+'%','частка дитячих смертей: від піку до 1920-х'],['29–31 і 22–25','середній вік чоловіків і жінок при шлюбі'],['Старий Данциг','найчастіше місце народження померлих: '+S.birthplaces[0][1]+' записів']].map(x=>'<div><b>'+esc(x[0])+'</b><span class="mut">'+esc(x[1])+'</span></div>').join('');
+}
+let KIDS2={},DESC={};
+function nestInit(){
+  KIDS2={};C.P.forEach(p=>{[p[7],p[8]].forEach(x=>{if(x&&PER[x]){(KIDS2[x]=KIDS2[x]||[]).push(p[0])}})});
+  if(HYON)Object.keys(HY).forEach(c=>{const f=HY[c].f;(KIDS2[f]=KIDS2[f]||[]).includes(c)||KIDS2[f].push(c)});
+  C.U.forEach(u=>{u[4].forEach(c=>{[u[1],u[2]].forEach(x=>{if(x&&PER[x]&&PER[c]){const l=(KIDS2[x]=KIDS2[x]||[]);if(!l.includes(c))l.push(c)}})})});
+}
+function dep(id,seen=new Set()){if(seen.has(id))return 0;seen.add(id);let m=0;(KIDS2[id]||[]).forEach(c=>{m=Math.max(m,1+dep(c,new Set(seen)))});return m}
+function desc(id,seen=new Set()){if(seen.has(id))return 0;seen.add(id);let n=0;(KIDS2[id]||[]).forEach(c=>{if(!seen.has(c))n+=1+desc(c,seen)});return n}
+function trees(){
+  nestInit();const sel=$('#tf');sel.innerHTML=FAMS.map(f=>'<option value="'+f[0]+'">'+esc(f[1])+'</option>').join('');
+  sel.onchange=fillPairs;$('#tp').onchange=drawTree;$('#tzm').onclick=()=>{TZ-=.15;applyZoom()};$('#tzp').onclick=()=>{TZ+=.15;applyZoom()};$('#tz0').onclick=()=>applyZoom(true);$('#ts').oninput=()=>markFind(true);$('#th').onchange=()=>{HYON=$('#th').checked;nestInit();fillPairs()};fillPairs();
+}
+let TP=[];
+function fillPairs(){
+  const re=FRE[$('#tf').value];
+  const cand=Object.values(PER).filter(p=>re.test(p.s+' '+p.n)&&!(KIDS2[p.f]&&0)).map(p=>({p,n:desc(p.id),dp:dep(p.id),anc:(p.f&&PER[p.f]?1:0)+(p.m&&PER[p.m]?1:0)})).filter(x=>x.n>=3);
+  cand.sort((a,b)=>(b.dp-a.dp)||(b.n-a.n));
+  TP=cand.slice(0,40);
+  $('#tp').innerHTML=TP.map((x,i)=>'<option value="'+i+'">'+esc(x.p.n)+(yr(x.p.b)?' (≈'+yr(x.p.b)+')':'')+' · '+x.n+' нащадків'+(x.dp>1?', '+x.dp+' пок.':'')+'</option>').join('')||'<option>Немає</option>';
+  drawTree();
+}
+function yr(s){const m=String(s||'').match(/(1[6-9]\d\d)/);return m?m[1]:''}
+function unitsOf(pid,seen){
+  const us=C.U.filter(u=>u[1]===pid||u[2]===pid);
+  us.sort((a,b)=>b[4].length-a[4].length);
+  const u=us[0];
+  const sp=u?(u[1]===pid?u[2]:u[1]):null;
+  const kids=[];
+  if(u)u[4].forEach(c=>{if(PER[c]&&!seen.has(c)){seen.add(c);kids.push(c)}});
+  {(KIDS2[pid]||[]).forEach(c=>{if(!seen.has(c)){seen.add(c);kids.push(c)}})}
+  return{a:pid,b:sp&&PER[sp]&&!seen.has(sp)?sp:null,u,kids}
+}
+function build(pid,depth,seen,cnt){
+  seen.add(pid);const o=unitsOf(pid,seen);o.hyp=HYON&&!!HY[pid]&&!(PER[pid]&&PER[pid].f);if(o.b)seen.add(o.b);cnt.n++;
+  o.ch=depth<5&&cnt.n<150?o.kids.map(c=>build(c,depth+1,seen,cnt)):[];return o}
+const BW=128,BH=46,GAP=14,UG=8;
+function uw(o){return o.b?2*BW+UG:BW}
+function lay(o){o.w=Math.max(uw(o),o.ch.length?o.ch.reduce((a,c)=>a+lay(c),0)+GAP*(o.ch.length-1):0);return o.w}
+function place(o,x,d,out,lines){
+  const cx=x+o.w/2;o.cx=cx;o.d=d;out.push(o);
+  let cxk=x+(o.w-(o.ch.reduce((a,c)=>a+c.w,0)+GAP*(o.ch.length-1)))/2;
+  o.ch.forEach(c=>{place(c,cxk,d+1,out,lines);lines.push([o,c]);cxk+=c.w+GAP})}
+function lvc(id){const p=PER[id];return css('--l'+LK((p&&p.lv)||'Б'))}
+function pbox(x,y,id,hyp){const p=PER[id];if(!p)return'';const c=lvc(id);const nm=p.n||'—';
+  return '<g class="pn" data-n="'+esc(((p.n||'')+' '+(p.s||'')).toLowerCase())+'"><rect class="nodebox" x="'+x+'" y="'+y+'" width="'+BW+'" height="'+BH+'" rx="7" style="stroke:'+(hyp?css('--lV'):c)+';stroke-width:1.6'+(hyp?';stroke-dasharray:5 3':'')+'"/><text x="'+(x+7)+'" y="'+(y+19)+'">'+esc(nm.length>19?nm.slice(0,18)+'…':nm)+'</text><text class="m" x="'+(x+7)+'" y="'+(y+35)+'">'+esc((yr(p.b)?'нар. '+yr(p.b):'')+(yr(p.d)?' · † '+yr(p.d):''))+'</text><title>'+esc(nm+' · рівень '+(p.lv||'')+(hyp?' · гіпотеза':''))+'</title></g>'}
+let TW=null,TZ=1;
+function applyZoom(fit){const box=$('#tview'),sv=box.querySelector('svg');if(!sv||!TW)return;if(fit)TZ=Math.max(.6,Math.min(1,(box.clientWidth-24)/TW.W));TZ=Math.max(.3,Math.min(2,TZ));sv.setAttribute('width',TW.W*TZ);sv.setAttribute('height',TW.H*TZ);$('#tzv').textContent=Math.round(TZ*100)+'%';markFind(false)}
+function markFind(scroll){const box=$('#tview'),q=($('#ts').value||'').trim().toLowerCase();const ws=q.split(/\s+/).filter(Boolean);let n=0,first=null;box.querySelectorAll('.pn').forEach(g=>{const ok=ws.length&&ws.every(w=>g.dataset.n.includes(w));const rc=g.querySelector('rect');rc.style.fill=ok?css('--soft'):'';rc.style.strokeWidth=ok?'3.2':'1.6';if(ok){n++;first=first||g}});$('#tsn').textContent=ws.length?n+' знайдено':'';if(scroll&&first){const b=first.getBoundingClientRect(),c=box.getBoundingClientRect();box.scrollLeft+=b.left-c.left-c.width/2+b.width/2}}
+function drawTree(){
+  const box=$('#tview'),x=TP[+$('#tp').value];
+  if(!x){box.innerHTML='<p class="mut">Для цього роду достатньо великих гнізд у базі немає.</p>';return}
+  const seen=new Set(),cnt={n:0},root=build(x.p.id,0,seen,cnt);
+  lay(root);const nodes=[],lines=[];place(root,0,0,nodes,lines);
+  const maxd=Math.max(...nodes.map(n=>n.d));
+  // ancestors (up to 2 generations)
+  const p0=x.p,fa=PER[p0.f]?p0.f:null,mo=PER[p0.m]?p0.m:null;
+  let anc=[];if(fa||mo){anc.push({ids:[fa,mo],g:1});const gp=[fa,mo].map(i=>i&&PER[i]?[PER[i].f,PER[i].m]:[null,null]).flat().filter(i=>i&&PER[i]);if(gp.length)anc.push({ids:gp,g:2})}
+  const A=anc.length,RH=BH+44,off=A*RH+6;
+  const aw=Math.max(...anc.map(a=>a.ids.filter(Boolean).length*(BW+GAP)),0);
+  const W=Math.max(root.w,aw)+20,sx=(W-root.w)/2,H=off+(maxd+1)*RH;
+  let g='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Родинне гніздо: нащадки та попередні покоління">';
+  const L=css('--mut');
+  // lines
+  lines.forEach(([p,c])=>{const y1=off+p.d*RH+BH,y2=off+c.d*RH,my=y1+(y2-y1)/2,cc=c.hyp?css('--lV'):lvc(c.a);g+='<path d="M'+(p.cx+sx)+' '+y1+'V'+my+'H'+(c.cx+sx-uw(c)/2+BW/2)+'V'+y2+'" fill="none" stroke="'+cc+'" stroke-width="1.8"'+(c.hyp?' stroke-dasharray="5 4"':'')+'/>'+(c.hyp?'<text class="m" x="'+(c.cx+sx-uw(c)/2+BW/2+5)+'" y="'+(my-3)+'" style="fill:'+css('--lV')+'">гіпотеза</text>':'')});
+  nodes.forEach(n=>{const y=off+n.d*RH,x0=n.cx+sx-uw(n)/2;g+=pbox(x0,y,n.a,n.hyp);if(n.b){g+=pbox(x0+BW+UG,y,n.b);g+='<line x1="'+(x0+BW)+'" y1="'+(y+BH/2)+'" x2="'+(x0+BW+UG)+'" y2="'+(y+BH/2)+'" stroke="'+L+'" stroke-width="2"/>'}});
+  // ancestors drawn above the root
+  const rootX=root.cx+sx-uw(root)/2;
+  anc.slice().reverse().forEach((a,i)=>{const gen=A-i,y=off-gen*RH,ids=a.ids.filter(Boolean),tw=ids.length*BW+(ids.length-1)*GAP,x0=root.cx+sx-tw/2;
+    ids.forEach((id,k)=>{g+=pbox(x0+k*(BW+GAP),y,id)});
+    g+='<line x1="'+(root.cx+sx)+'" y1="'+(y+BH)+'" x2="'+(root.cx+sx)+'" y2="'+(y+RH)+'" stroke="'+L+'" stroke-width="1.6" stroke-dasharray="4 3"/>'});
+  g+='</svg>';
+  TW={W,H};const gens=maxd+1+A;
+  box.innerHTML=g+'<p class="cap" style="text-align:center">'+gens+' покоління · '+nodes.reduce((a,n)=>a+1+(n.b?1:0),0)+' осіб у гнізді'+(A?' · пунктир угорі — попередні покоління':'')+(HYON?' · жовтий пунктир — гіпотеза наступництва (за хронологією, у Core не записана; для '+Object.values(HY).filter(v=>v.n>1).length+' із '+Object.keys(HY).length+' гіпотез у батьки підходить кілька кандидатів — до '+Math.max(...Object.values(HY).map(v=>v.n))+')':'')+'. Рамка: '+lv2('А')+' підтверджено, '+lv2('Б')+' імовірно, '+lv2('В')+' припущення.</p>';applyZoom(true);markFind(false);
+}
+function lv2(x){x=(x||'Б')[0];return '<span class="lv lv'+x+'">'+x+'</span>'}
+
+function extras(){
+  // метод: цифри
+  const lc={};C.P.forEach(p=>{lc[p[9]]=(lc[p[9]]||0)+1});
+  const nsc=Object.keys(SC).length;
+  $('#mk').innerHTML=[[C.P.length,'осіб у базі'],[C.U.length,'пар'],[C.A.length,'підтверджених записів'],[nsc,'записів зі скану'],[Object.keys(HY).length,'гіпотез наступництва']].map(x=>'<div><b>'+x[0]+'</b>'+x[1]+'</div>').join('');
+  $('#mkc').textContent='Рівні осіб: А — '+(lc['А']||0)+', Б — '+(lc['Б']||0)+', В — '+(lc['В']||0)+'.';
+  // складний випадок
+  const us=C.U.filter(u=>PER[u[1]]&&PER[u[1]].n==='Johann Giedt');
+  const rows=us.map(u=>{const w=PER[u[2]];const ks=u[4].filter(k=>PER[k]).map(k=>PER[k]);return {id:u[0],w:w?w.n+' '+w.s:'—',ks}}).sort((a,b)=>{const y=r=>Math.min(...r.ks.map(k=>+(String(k.b).match(/\d{4}/)||[9999])[0]),9999);return y(a)-y(b)});
+  const real=rows.filter(r=>r.ks.length);
+  $('#tz_p').textContent='У книгах трапляється '+real.length+' родин, де батько записаний просто «Johann Giedt». Прізвище й ім’я однакові, але дружини різні, а діти народжені у перетині років. Сам по собі збіг імені нічого не доводить.';
+  $('#tz').innerHTML='<thead><tr><th>Родина в базі</th><th>Дружина</th><th>Діти (дата народження)</th></tr></thead><tbody>'+real.map(r=>'<tr><td class="num">'+esc(r.id)+'</td><td>'+esc(r.w)+'</td><td>'+r.ks.map(k=>esc(k.n)+' ('+esc(k.b)+')').join('; ')+'</td></tr>').join('')+'</tbody>';
+  $('#tz_c').textContent='Три різні дружини мають дітей, народжених у 1861 р. (Heinrich, Emilie, Theodor), тож це троє різних чоловіків. Решту об’єднувати чи розрізняти можна лише з додатковими джерелами: наприклад, дружини Christina Quartier (1861, 1862) і Christine Quatier (1868) можуть бути однією особою з різним написанням, але це лишається відкритим питанням.';
+  // населені пункти
+  const ST=S.settle||[];
+  $('#gt').innerHTML='<thead><tr><th>Поселення</th><th>Записів</th></tr></thead><tbody>'+ST.map(x=>'<tr><td>'+esc(x[0])+'</td><td class="num">'+x[1]+'</td></tr>').join('')+'</tbody>';
+  // пошук
+  const run=()=>{
+    const q=$('#sq').value.trim().toLowerCase();
+    if(q.length<2){$('#sp').innerHTML='';$('#sr').innerHTML='';$('#sn').textContent='';return}
+    const ws=q.split(/\s+/);
+    const P=C.P.filter(p=>{const t=(p[1]+' '+p[2]).toLowerCase();return ws.every(w=>t.includes(w))});
+    const E=C.A.filter(r=>ws.every(w=>(r[3]+' '+r[2]).toLowerCase().includes(w)));
+    $('#sn').textContent=P.length+' осіб · '+E.length+' записів';
+    const par=p=>{const f=PER[p[7]],m=PER[p[8]];return [f&&f.n,m&&m.n].filter(Boolean).join(' × ')||'—'};
+    $('#sp').innerHTML=P.length?'<table><thead><tr><th>Особа</th><th>Народження</th><th>Смерть</th><th>Батьки</th><th>Рівень</th></tr></thead><tbody>'+P.slice(0,40).map(p=>'<tr><td>'+esc(p[1]+(p[1].includes(p[2])?'':' '+p[2]))+'</td><td class="num">'+esc(p[5]||'—')+'</td><td class="num">'+esc(p[6]||'—')+'</td><td>'+esc(par(p))+'</td><td>'+lv(p[9])+'</td></tr>').join('')+'</tbody></table>'+(P.length>40?'<p class="cap">Показано 40 із '+P.length+'. Уточніть запит.</p>':''):'<p class="mut">Осіб не знайдено.</p>';
+    $('#sr').innerHTML=E.length?'<table><thead><tr><th>Дата</th><th>Запис</th><th>Скан</th></tr></thead><tbody>'+E.slice(0,25).map(r=>'<tr><td class="num" style="white-space:nowrap">'+esc(r[2])+'<br><span class="mut" style="font-size:12px">'+esc(r[1])+'</span></td><td>'+esc(r[3].length>200?r[3].slice(0,200)+'…':r[3])+'</td><td>'+(SC[r[0]]?'<button class="scan" data-id="'+esc(r[0])+'">Скан</button>':'<span class="noscan">—</span>')+'</td></tr>').join('')+'</tbody></table>':'';
+    document.querySelectorAll('#sr .scan').forEach(b=>b.onclick=()=>openScan(b.dataset.id));
+  };
+  $('#sq').oninput=run;
+  // для журі
+  const per=C.P.length;
+  $('#jk').innerHTML=[[S.nDeaths+S.nMar+BJ.birthYear.reduce((a,x)=>a+x[1],0),'записів у базі'],[nsc,'записів зі скану сторінки'],[per,'осіб'],[Object.keys(HY).length,'гіпотез наступництва'],[FAMS.length-1,'родин у дослідженні (і лід Benkendorf)']].map(x=>'<div><b>'+x[0]+'</b>'+x[1]+'</div>').join('');
+  $('#jl').innerHTML='<li>Шість родин простежено від ревізії 1816 р. до парафіяльних записів, підтверджені записи з метричних книг мають скан сторінки.</li><li>Повні реєстри смертей і шлюбів дають статистику парафії: вік, причини, заняття, місця.</li><li>Родинні гнізда сягають 4–5 поколінь; документально підтверджені зв’язки й гіпотези показані по-різному.</li><li>Метод: кожен факт має рівень достовірності, а склад рівнів визначає дослідниця.</li>';
+}
+</script>
